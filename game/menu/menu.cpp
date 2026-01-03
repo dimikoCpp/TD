@@ -22,10 +22,14 @@ static void set_mouse_cursor(RenderWindow& wnd) {
 }
 
 Main::Main(RenderWindow& wnd) {
-    load_texture(10, "main menu", "data/main menu.png");
+    load_texture(5, "main menu", "data/main menu.png");
+    load_texture(5, "settings", "data/settings.png");
+    load_texture(5, "play", "data/play.png");
 
-    play = new Button({X/2, Y/2, 250, 100}, "data/play.png");
-    settings = new Button({X-100, 100, 50, 50}, "data/Settings.png");
+
+
+    play = new Button({X/2-50, Y/2-50, 220, 100}, "play");
+    settings = new Button({X-100, 100, 50, 50}, "settings");
 }
 
 void Main::draw(RenderWindow& wnd) {
@@ -43,7 +47,7 @@ void Main::draw(RenderWindow& wnd) {
     if (counter % 60 == 0)
         set_mouse_cursor(wnd);
 
-    draw_texture(X/2, Y/2, wnd, "main menu");
+    draw_texture(X/2-250, Y/2-250, wnd, "main menu");
     
 
     play->draw(wnd);

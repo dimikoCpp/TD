@@ -4,9 +4,10 @@
 
 // меню настроек игры
 class Settings: public Menu {
-    Button* fps_btn {};
+  
 
 public:
+    Button* fps_btn {};
     Settings(RenderWindow& wnd);
     void draw(RenderWindow& wnd);
     void action(RenderWindow& wnd);

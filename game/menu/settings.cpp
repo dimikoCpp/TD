@@ -40,6 +40,7 @@ Settings::Settings(RenderWindow& wnd) {
     fps_btn = new Button({X/2, Y/2, 200, 200},
         fps_structs[index].tex_name, exit_from_game);
 }
+    
 
 void Settings::draw(RenderWindow& wnd) {
     fps_btn->draw(wnd);
