@@ -24,8 +24,8 @@ static void set_mouse_cursor(RenderWindow& wnd) {
 Main::Main(RenderWindow& wnd) {
     load_texture(10, "main menu", "data/main menu.png");
 
-    play = new Button({X/2, Y/2, 250, 100}, 6, "data/play.png");
-    settings = new Button({X-100, 100, 50, 50}, 2, "data/Settings.png");
+    play = new Button({X/2, Y/2, 250, 100}, "data/play.png");
+    settings = new Button({X-100, 100, 50, 50}, "data/Settings.png");
 }
 
 void Main::draw(RenderWindow& wnd) {

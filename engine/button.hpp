@@ -11,16 +11,16 @@ struct Rect2d {
 };
 
 class Button {
-    Texture* tex {};
-    Sprite* spr {};
+    string texture {};
     Rect2d hitbox {};
     function<void ()> deiystvie {};
 
 public: 
-    Button(Rect2d h, int s, string name, function<void ()> func = {});
+    Button(Rect2d h, string name, function<void ()> func = {});
     ~Button();
 
     void draw(RenderWindow& wnd);
     void action(RenderWindow& wnd);
     bool check(int x, int y); // проверка что корды мышки находятся в кнопке
+    void set_texture(string new_tex);
 };

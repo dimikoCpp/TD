@@ -1,29 +1,26 @@
 #include "button.hpp"
-
-Button::Button(Rect2d h, int s, string name, function<void ()> func)
+#include "texture.hpp"
+Button::Button(Rect2d h, string name, function<void ()> func)
 {
     deiystvie = func;
     hitbox = h;
     hitbox.x -= hitbox.w/2;
     hitbox.y -= hitbox.h/2;
-    tex = new Texture(name);
-    spr = new Sprite(*tex);
-    spr->setScale(Vector2f(s, s));
-    spr->setOrigin(Vector2f(tex->getSize().x / 2, tex->getSize().y / 2));
-    spr->setPosition(Vector2f(h.x, h.y));
+    texture = name;
+}
+
+void Button::set_texture(string new_tex) {
+    texture = new_tex;
 }
 
 Button::~Button() {
-    delete spr;
-    delete tex;
+
 }
 
 void Button::draw(RenderWindow& wnd) {
-    wnd.draw(*spr);
+    draw_texture(hitbox.x, hitbox.y, wnd, texture);
 
     RectangleShape rect(Vector2f(hitbox.w, hitbox.h));
-    auto pos = spr->getPosition();
-    auto center = spr->getOrigin();
     rect.setPosition(Vector2f(hitbox.x, hitbox.y));
     rect.setOutlineThickness(1);
     rect.setOutlineColor(Color(255, 0, 0));
