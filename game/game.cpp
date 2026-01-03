@@ -4,8 +4,8 @@
 #include "game/menu/settings.hpp" // <-- домашка
 
  Core::Core(RenderWindow& window) {
-    //menu = new Main(window); // рабочее меню, с него копируй (game/menu/menu.cpp)
-    menu = new Settings(window); // это сделать надо (game/menu/setting.cpp)
+    menu = new Main(window); // рабочее меню, с него копируй (game/menu/menu.cpp)
+    //menu = new Settings(window); // это сделать надо (game/menu/setting.cpp)
     //menu = new In_game();
 }
 
