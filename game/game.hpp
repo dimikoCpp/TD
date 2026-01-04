@@ -3,10 +3,7 @@
 
 using namespace std;
 using namespace sf;
-class Menu;
-
 class Core{
-    Menu* menu {};
 
 public:
     Core(RenderWindow& window);

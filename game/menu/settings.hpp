@@ -11,4 +11,5 @@ public:
     Settings(RenderWindow& wnd);
     void draw(RenderWindow& wnd);
     void action(RenderWindow& wnd);
+    Button* exit_btn {};
 };

@@ -3,7 +3,7 @@
 using namespace sf;
 using namespace std;
 
-void sc_goto(string name);
+void sc_goto(string name, RenderWindow& wnd);
 
 void sc_goback();
 

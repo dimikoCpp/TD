@@ -3,6 +3,7 @@
 #include "../../core/consts.hpp"
 #include "../../engine/button.hpp"
 #include "../../engine/texture.hpp"
+#include "../../game/scene.hpp"
 using namespace sf;
 
 // сделать курсор мышки
@@ -25,11 +26,13 @@ Main::Main(RenderWindow& wnd) {
     load_texture(5, "main menu", "data/main menu.png");
     load_texture(5, "settings", "data/settings.png");
     load_texture(5, "play", "data/play.png");
+    load_texture(5, "exit", "data/exit.png");
 
-
-
+    exit = new Button({100, 100, 50, 50}, "exit", sc_goback);
     play = new Button({X/2-50, Y/2-50, 220, 100}, "play");
-    settings = new Button({X-100, 100, 50, 50}, "settings");
+    settings = new Button({X-100, 100, 100, 100}, "settings", [&]{
+        sc_goto("settings", wnd);
+    });
 }
 
 void Main::draw(RenderWindow& wnd) {
@@ -49,12 +52,13 @@ void Main::draw(RenderWindow& wnd) {
 
     draw_texture(X/2-250, Y/2-250, wnd, "main menu");
     
-
+    exit->draw(wnd);
     play->draw(wnd);
     settings->draw(wnd);
 }
 
 void Main::action(RenderWindow& wnd) {
+    exit->action(wnd);
     play->action(wnd);
     settings->action(wnd);
 }

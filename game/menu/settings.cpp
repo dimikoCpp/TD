@@ -1,6 +1,7 @@
 #include "settings.hpp"
 #include "engine/texture.hpp"
 #include "core/consts.hpp"
+#include "game/scene.hpp"
 #include <iostream>
 
 using namespace std;
@@ -29,7 +30,7 @@ Settings::Settings(RenderWindow& wnd) {
     fps_structs.push_back(fps_struct("fps4", 225));
     fps_structs.push_back(fps_struct("fps5", 300));
 
-    auto exit_from_game = [this]{
+    auto fps_plus = [this]{
         if(index== 4){
             index = -1;
         }
@@ -38,14 +39,17 @@ Settings::Settings(RenderWindow& wnd) {
     };
 
     fps_btn = new Button({X/2, Y/2, 200, 200},
-        fps_structs[index].tex_name, exit_from_game);
+        fps_structs[index].tex_name, fps_plus);
+    exit_btn = new Button({100, 100, 50, 50}, "exit", sc_goback);
 }
     
 
 void Settings::draw(RenderWindow& wnd) {
     fps_btn->draw(wnd);
+    exit_btn->draw(wnd);
 }
 
 void Settings::action(RenderWindow& wnd) {
     fps_btn->action(wnd);
+    exit_btn->action(wnd);
 }

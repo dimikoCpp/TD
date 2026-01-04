@@ -15,6 +15,7 @@ public:
 // главное меню игры
 class Main: public Menu {
     Button* play {};
+    Button* exit {};
     Button* settings {};
     uint64_t counter = 0;
 

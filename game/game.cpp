@@ -1,24 +1,18 @@
 #include <cassert>
 #include "game.hpp"
-#include "menu/menu.hpp"
-#include "game/menu/settings.hpp" // <-- домашка
+#include "scene.hpp"
 
- Core::Core(RenderWindow& window) {
-    menu = new Main(window); // рабочее меню, с него копируй (game/menu/menu.cpp)
-    //menu = new Settings(window); // это сделать надо (game/menu/setting.cpp)
-    //menu = new In_game();
+Core::Core(RenderWindow& wnd) {
+    sc_goto("main_menu", wnd);
 }
 
 Core::~Core() {
-    delete menu;
 }
 
 void Core::action(RenderWindow& wnd) {
-    assert(menu != nullptr);
-    menu->action(wnd);
+    sc_action(wnd);
 }
 
-void Core::draw(RenderWindow& window){
-    assert(menu != nullptr);
-    menu->draw(window);
+void Core::draw(RenderWindow& wnd){
+    sc_draw(wnd);
 }
